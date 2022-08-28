@@ -1,0 +1,15 @@
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        count=0
+        count_array=[]
+        capacity=len(nums)-1
+        pointer=0
+        for i in nums: 
+            if i==1:
+                count=count+1
+            if i==0 or capacity==pointer:
+                count_array.append(count)
+                count=0
+            pointer=pointer+1
+        
+        return max(count_array)
